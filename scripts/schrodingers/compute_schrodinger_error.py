@@ -116,9 +116,6 @@ print("v_theta max:", all_max_v)
 print("h_theta_norm min:", all_min_h)
 print("h_theta_norm max:", all_max_h)
 
-import pdb
-pdb.set_trace()
-
 # def compute_torch_gradient_dt(model, X_r):
 #     t, x = X_r[:, 0:1], X_r[:, 1:2]
 #     t.requires_grad_()
@@ -168,13 +165,6 @@ import matplotlib
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 
-plt.rcParams.update({
-    "text.usetex": True,
-    "font.family": "sans-serif",
-    "font.sans-serif": ["Helvetica"],
-    "font.size": 20
-})
-
 fig, ax = plt.subplots(2, 1, sharey=True)
 fig.set_figheight(8)
 fig.set_figwidth(5)
@@ -182,20 +172,16 @@ fig.set_figwidth(5)
 thetas_plot = ax[0].imshow(h_theta_norm.detach().numpy().reshape(grid_ts.shape).T, extent=[0, np.pi/2, -5, 5], aspect=0.157)
 fig.colorbar(thetas_plot, ax=ax[0])
 # ax[0].scatter(grid_points[:, 0], grid_points[:, 1], s=1, c="red")
-ax[0].set_ylabel(r"$x$")
-ax[0].set_xlabel(r"$t$")
-ax[0].set_title(r"$|u_{\theta}|$")
+ax[0].set_ylabel("x")
+ax[0].set_xlabel("t")
+ax[0].set_title("u_theta")
 
 # cmap = matplotlib.cm.get_cmap('seismic')
 fs_plot = ax[1].imshow(f_hs.detach().numpy().reshape(grid_ts.shape).T, extent=[0, np.pi/2, -5, 5], aspect=0.157, cmap='Reds')
 fig.colorbar(fs_plot, ax=ax[1])
 # ax[1].scatter(grid_points[:, 0], grid_points[:, 1], s=1, c="red")
-ax[1].set_ylabel(r"$x$")
-ax[1].set_xlabel(r"$t$")
-ax[1].set_title(r"$|f_{\theta}|^2$")
+ax[1].set_ylabel("x")
+ax[1].set_xlabel("t")
+ax[1].set_title("f_theta^2")
 
-plt.tight_layout()
-plt.show()
-
-import pdb
-pdb.set_trace()
+plt.savefig("schrodiger-error.pdf")
