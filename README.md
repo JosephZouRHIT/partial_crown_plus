@@ -20,12 +20,16 @@ This work was supported by the EPSRC Centre for Doctoral Training in Autonomous 
 Installation Instructions:
 1. Clone this repository and go into the directory: 
 
+```
 git clone https://github.com/JosephZouRHIT/partial_crown_plus.git
 cd partial_crown_plus                                                     
+```
 
 2. Clone oval-bab from their Github repository:
 
+```
 git clone https://github.com/oval-group/oval-bab.git 
+```
 
 3. Add the following function to oval-bab/tools/bab_tools/onnx_reader.py after import if rebuild_tanh does not exist in this file:
 
@@ -34,16 +38,22 @@ def rebuild_tanh(node, weights):
 
 4. Create conda virtual environment with Python version <= 3.12 (For compatibility with PyDOE, which may be removed later).
 
+```
 conda create -y -n partial-crown python=3.11
 conda activate partial-crown
+```
 
 5. From the project root directory, install required Python packages: 
 
+```
 python -m pip install -r requiremnts.txt
+```
 
 6. Install both partial_crown and oval-bab to make sure the namespaces are correct:
 
+```
 cd oval-bab
 python -m pip install .
 cd ..
 python -m pip install .
+```
