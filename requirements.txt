@@ -3,3 +3,11 @@ torch
 torchvision
 onnx
 tqdm
+onnxsim
+pyDOE
+sh
+scipy
+pandas
+onnxruntime
+gurobipy
+matplotlib
