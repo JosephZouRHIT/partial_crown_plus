@@ -33,8 +33,10 @@ git clone https://github.com/oval-group/oval-bab.git
 
 3. Add the following function to oval-bab/tools/bab_tools/onnx_reader.py after import if rebuild_tanh does not exist in this file:
 
+```
 def rebuild_tanh(node, weights):
     return nn.Tanh(), node.input, node.output
+```
 
 4. Create conda virtual environment with Python version <= 3.12 (For compatibility with PyDOE, which may be removed later).
 
