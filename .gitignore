@@ -2,6 +2,5 @@
 *.pyc
 PINN_Verifier.egg-info
 *.json
-*.png
 *.pb
 ./oval-bab/*
